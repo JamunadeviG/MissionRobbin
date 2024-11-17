@@ -35,12 +35,16 @@ public class BombDetectionTSP {
     public static void main(String[] args) {
         // Example adjacency matrix representing distances
         // 0 is the distance from a node to itself
-        int[][] distances = {
-            {0, 10, 15, 20},
-            {10, 0, 35, 25},
-            {15, 35, 0, 30},
-            {20, 25, 30, 0}
-        };
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt();
+        int c = sc.nextInt();
+        int[][] distances = new int[r][c];
+        
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                distances[i][j] = sc.nextInt(); 
+            }
+        }
 
         // Starting point (Jayasurya's location)
         int start = 0;
@@ -56,6 +60,6 @@ public class BombDetectionTSP {
         int minCost = tsp(distances, start, visited, 1, 0, start);
 
         // Output the result
-        System.out.println("Minimum cost for the dog to detect bombs and return: " + minCost);
+        System.out.println("Minimum travel distance for the dog to detect bombs and return: " + minCost);
     }
 }
